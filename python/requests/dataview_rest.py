@@ -23,7 +23,7 @@ class DataViewRestClient():
     def create_model(self, name, values):
       r = requests.post(self.ENDPOINT + '' + name + '/', headers=self.get_headers(), verify=self.CERTIFICATE, data=values)
 
-      if r.status_code == 200:
+      if r.status_code == 201:
         return r.json()
       else:
         raise Exception(r.status_code, r.text)
